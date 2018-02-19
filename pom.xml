@@ -66,6 +66,20 @@
                     <failOnError>false</failOnError>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.pitest</groupId>
+                <artifactId>pitest-maven</artifactId>
+                <version>LATEST</version>
+                <configuration>
+                    <!-- Make sure we only mutate our own code, wouldn't want to hit mutate mockito. -->
+                    <targetClasses>
+                        <param>website.frontrow*</param>
+                    </targetClasses>
+                    <targetTests>
+                        <param>website.frontrow*</param>
+                    </targetTests>
+                </configuration>
+            </plugin>
         </plugins>
     </reporting>
     <properties>
